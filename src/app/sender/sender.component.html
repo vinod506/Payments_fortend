@@ -1,0 +1,124 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+
+
+<div class ="container" style="padding: 35px; color:rgb(116, 26, 93);" >
+    <form class="form" #f="ngForm" (ngSubmit)=(postaddtransaction($event,f)) ngNativeValidate >
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <label>Sender Id</label>
+            </div>
+            <div class="col-sm-3" >
+                <input type="text" 
+                id="cust_id" name="cust_id"
+                ngModel (focusout)="getsender($event,f)" required/>
+            
+            </div>
+
+            <div class="col-sm-3">
+                <label>Sender Name</label>
+            </div>
+            <div class="col-sm-3">
+                    <input type="text" 
+                    id="cust_name" name="cust_name"
+                    ngModel readonly/>
+            </div> 
+        </div>
+            
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <label>Balance</label>
+            </div>
+            <div class="col-sm-3">
+                <input type="text"
+                id="balance" name="balance"
+                ngModel readonly/>
+            </div>
+        </div>
+    
+    <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+
+        <div class="form-group row">
+            <label class="col-sm-3">Receiver BIC</label>
+            <div class="col-sm-3">
+                <input type="text" 
+                id="bic" name="bic"
+                ngModel (focusout)="getreciever($event,f)" required/>
+            </div>
+       
+            <label class="col-sm-3">Institution Name</label>
+            <div class="col-sm-3">
+                <input type="text" 
+                id="b_name" name="b_name"
+                ngModel readonly/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-3">Account Holder Name</label>
+            <div class="col-sm-3">
+                <input type="text" 
+                id="reciever_name" name="reciever_name"
+                ngModel  required/>
+            </div>
+       
+            <label class="col-sm-3">Account Holder Number</label>
+            <div class="col-sm-3">
+                <input type="text" 
+                id="reciever_id" name="reciever_id" ng-required="true"
+                ngModel />
+            </div>
+        </div>
+
+    <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+
+        <div class="form-group row">
+            <label class="col-sm-3">Transfer Type</label>
+            <div class="col-sm-3">
+                <input type="text" 
+                id="transfer_type" name="transfer_type"
+                ngModel readonly/>
+            </div>
+        
+            <label class="col-sm-3">Amount</label>
+            <div class="col-sm-3">
+                <input type="text" 
+                id="amount" name="amount"
+                ngModel (focusout)="trans_charge($event,f)" required/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-3">Transfer Fee</label>
+            <div class="col-sm-3">
+                <input type="text" 
+                id="fees" name="fees"
+                ngModel readonly/>
+            </div>
+        
+            <label class="col-sm-3">Clear Balance</label>
+            <div class="col-sm-3">
+                <input type="text" 
+                id="tot_amt" name="tot_amt"
+                ngModel readonly/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-3">Message Code</label>
+            <div class="col-sm-5">
+                <select class= "form-control" name="msg_code" id="msg_code" ngModel required>
+                    <option value="">Select Code</option>
+                    <option *ngFor="let i of instArr">{{i}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="container bg-light">
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-primary" [disabled]="!f.form.valid"><b>Submit</b></button>
+            </div>
+        </div>
+
+    </form>
+   
+</div>

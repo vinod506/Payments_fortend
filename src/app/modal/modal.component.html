@@ -1,0 +1,22 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+
+<div class="modal-fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLabel">Transaction Status</h3>
+        </div>
+        <div class="modal-body">
+          <p style="text-align:center;">
+        Transaction Status:{{s.trans_status}}<br>
+        Transaction id:{{s.trans_id}}  <br>
+        Transaction amount:{{s.amount}} 
+    </p>
+        </div>
+        <div class="modal-footer" id ="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" id="close " data-dismiss="modal">Close</button> -->
+          <button type="button" class="btn btn-primary" id="closeButton" (click)="closemodal()">Close</button>
+        </div>
+      
+    </div>
+  </div>
